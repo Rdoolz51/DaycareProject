@@ -1,10 +1,18 @@
 package com.revature.models;
 
+import com.revature.utils.AgeFinderUtil;
+
+import java.time.LocalDate;
+
+import static com.revature.utils.AgeFinderUtil.getAge;
+
 public class Child {
 
     private int childId;
     private String childFn;
     private String childLn;
+    //private static String dateOfBirth; // YYYY-MM-DD Format very important
+    //public static int childAge = AgeFinderUtil.getAge(LocalDate.parse(dateOfBirth)); //Uses AgeFinderUtil to calculate age in years based on DOB and Current Date.
     private int childAge;
     private int class_id_fk;
 
@@ -80,6 +88,7 @@ public class Child {
     public void setClassroom(Classroom classroom) {
         this.classroom = classroom;
     }
+
 
     @Override
     public String toString() {

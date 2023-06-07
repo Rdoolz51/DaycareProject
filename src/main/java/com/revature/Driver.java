@@ -2,6 +2,8 @@ package com.revature;
 
 import com.revature.daos.ChildDAO;
 import com.revature.daos.ClassroomDAO;
+import com.revature.daos.TeacherDAO;
+import com.revature.models.Child;
 import com.revature.utils.ConnectionUtil;
 
 import java.sql.Connection;
@@ -18,8 +20,10 @@ public class Driver {
 
         ClassroomDAO cDao = new ClassroomDAO();
         ChildDAO chDao = new ChildDAO();
-
-//        System.out.println(cDao.getAllClassrooms());
+        TeacherDAO tDao = new TeacherDAO();
+        
+        System.out.println(cDao.getAllClassrooms());
         System.out.println(chDao.getAllChildren());
+        System.out.println(tDao.getAllTeachers());
     }
 }

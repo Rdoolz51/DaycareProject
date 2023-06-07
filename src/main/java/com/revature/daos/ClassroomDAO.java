@@ -21,7 +21,8 @@ public class ClassroomDAO implements ClassroomDAOInterface {
             while (rs.next()) {
                 Classroom classroom = new Classroom(
                         rs.getInt("class_id"),
-                        rs.getString("class_name")
+                        rs.getString("class_name"),
+                        rs.getString("description")
                 );
                 classrooms.add(classroom);
             }
@@ -45,7 +46,8 @@ public class ClassroomDAO implements ClassroomDAOInterface {
             if (rs.next()) {
                 return new Classroom(
                         rs.getInt("class_id"),
-                        rs.getString("class_name")
+                        rs.getString("class_name"),
+                        rs.getString("description")
                 );
             }
         } catch (SQLException e) {
@@ -89,7 +91,7 @@ public class ClassroomDAO implements ClassroomDAOInterface {
     @Override
     public int insertClassroom(Classroom c) {
         try (Connection conn = ConnectionUtil.getConnection()) {
-            String sql = "INSERT INTO classrooms (class_name) VALUES(?)";
+            String sql = "INSERT INTO classrooms (class_name, description) VALUES(?)";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, c.getClassName());
             return ps.executeUpdate();
