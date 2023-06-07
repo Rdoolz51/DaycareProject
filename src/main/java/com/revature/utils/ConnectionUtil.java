@@ -21,7 +21,7 @@ public class ConnectionUtil {
 
         String url = "jdbc:postgresql://localhost:5432/postgres?currentSchema=project0";
         String username = "postgres";
-        String password = "password"; //This is the password you made when you installed postgreSQL
+        String password = "password"; //This is the password made when installing postgresSQL
 
         return DriverManager.getConnection(url, username, password);
 

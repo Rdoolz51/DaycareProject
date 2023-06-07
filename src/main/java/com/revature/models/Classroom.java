@@ -9,6 +9,11 @@ public class Classroom {
         this.className = className;
     }
 
+    public Classroom(int classId, String className) {
+        this.classId = classId;
+        this.className = className;
+    }
+
     public int getClassId() {
         return classId;
     }

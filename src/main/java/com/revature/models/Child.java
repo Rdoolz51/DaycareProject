@@ -8,11 +8,22 @@ public class Child {
     private int childAge;
     private int class_id_fk;
 
+    private Classroom classroom;
 
-    public Child(String childFn, String childLn, int childAge) {
+
+    public Child(int childId, String childFn, String childLn, int childAge) {
+        this.childId = childId;
         this.childFn = childFn;
         this.childLn = childLn;
         this.childAge = childAge;
+    }
+
+    public Child(int childId, String childFn, String childLn, int childAge, Classroom classroom) {
+        this.childId = childId;
+        this.childFn = childFn;
+        this.childLn = childLn;
+        this.childAge = childAge;
+        this.classroom = classroom;
     }
 
     public Child(String childFn, String childLn, int childAge, int class_id_fk) { //for inserting into DB
@@ -62,6 +73,14 @@ public class Child {
         this.class_id_fk = class_id_fk;
     }
 
+    public Classroom getClassroom() {
+        return classroom;
+    }
+
+    public void setClassroom(Classroom classroom) {
+        this.classroom = classroom;
+    }
+
     @Override
     public String toString() {
         return "Child{" +
@@ -70,6 +89,7 @@ public class Child {
                 ", childLn='" + childLn + '\'' +
                 ", childAge=" + childAge +
                 ", class_id_fk=" + class_id_fk +
+                ", classroom=" + classroom +
                 '}';
     }
 }

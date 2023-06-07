@@ -6,12 +6,23 @@ public class Teacher {
     private String teacherLn;
     private int class_id_fk;
 
-    public Teacher(String teacherFn, String teacherLn) {
+    private Classroom classroom;
+
+    public Teacher(int teacherId, String teacherFn, String teacherLn, Classroom classroom) {
+        this.teacherId = teacherId;
         this.teacherFn = teacherFn;
         this.teacherLn = teacherLn;
+        this.classroom = classroom;
     }
 
     public Teacher(String teacherFn, String teacherLn, int class_id_fk) { //for inserting into DB
+        this.teacherFn = teacherFn;
+        this.teacherLn = teacherLn;
+        this.class_id_fk = class_id_fk;
+    }
+
+    public Teacher(int teacherId, String teacherFn, String teacherLn, int class_id_fk) {
+        this.teacherId = teacherId;
         this.teacherFn = teacherFn;
         this.teacherLn = teacherLn;
         this.class_id_fk = class_id_fk;
@@ -49,6 +60,14 @@ public class Teacher {
         this.class_id_fk = class_id_fk;
     }
 
+    public Classroom getClassroom() {
+        return classroom;
+    }
+
+    public void setClassroom(Classroom classroom) {
+        this.classroom = classroom;
+    }
+
     @Override
     public String toString() {
         return "Teacher{" +
@@ -56,6 +75,7 @@ public class Teacher {
                 ", teacherFn='" + teacherFn + '\'' +
                 ", teacherLn='" + teacherLn + '\'' +
                 ", class_id_fk=" + class_id_fk +
+                ", classroom=" + classroom +
                 '}';
     }
 }
