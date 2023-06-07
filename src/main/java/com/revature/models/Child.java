@@ -2,42 +2,39 @@ package com.revature.models;
 
 import com.revature.utils.AgeFinderUtil;
 
+import java.sql.Date;
 import java.time.LocalDate;
-
-import static com.revature.utils.AgeFinderUtil.getAge;
+import java.time.Period;
 
 public class Child {
 
     private int childId;
     private String childFn;
     private String childLn;
-    //private static String dateOfBirth; // YYYY-MM-DD Format very important
-    //public static int childAge = AgeFinderUtil.getAge(LocalDate.parse(dateOfBirth)); //Uses AgeFinderUtil to calculate age in years based on DOB and Current Date.
-    private int childAge;
     private int class_id_fk;
-
+    private Date childDob; // YYYY-MM-DD Format very important
     private Classroom classroom;
 
-
-    public Child(int childId, String childFn, String childLn, int childAge) {
+    public Child(int childId, String childFn, String childLn, Date childDob) {
         this.childId = childId;
         this.childFn = childFn;
         this.childLn = childLn;
-        this.childAge = childAge;
+        this.childDob = childDob;
+
     }
 
-    public Child(int childId, String childFn, String childLn, int childAge, Classroom classroom) {
+    public Child(int childId, String childFn, String childLn, Date childDob, Classroom classroom) {
         this.childId = childId;
         this.childFn = childFn;
         this.childLn = childLn;
-        this.childAge = childAge;
+        this.childDob = childDob;
         this.classroom = classroom;
     }
 
-    public Child(String childFn, String childLn, int childAge, int class_id_fk) { //for inserting into DB
+    public Child(String childFn, String childLn, Date childDob, int class_id_fk) { //for inserting into DB
         this.childFn = childFn;
         this.childLn = childLn;
-        this.childAge = childAge;
+        this.childDob = childDob;
         this.class_id_fk = class_id_fk;
     }
 
@@ -65,19 +62,18 @@ public class Child {
         this.childLn = childLn;
     }
 
-    public int getChildAge() {
-        return childAge;
-    }
+    public Period getChildAge() {
+        return AgeFinderUtil.getAge(this.childDob);
 
-    public void setChildAge(int childAge) {
-        this.childAge = childAge;
     }
 
     public int getClass_id_fk() {
+
         return class_id_fk;
     }
 
     public void setClass_id_fk(int class_id_fk) {
+
         this.class_id_fk = class_id_fk;
     }
 
@@ -89,16 +85,24 @@ public class Child {
         this.classroom = classroom;
     }
 
+    public Date getChildDob() {
+        return childDob;
+    }
+
+    public void setChildDob(Date childDob) {
+        this.childDob = childDob;
+    }
 
     @Override
     public String toString() {
-        return "Child{" +
+        return "\nChild{" +
                 "childId=" + childId +
                 ", childFn='" + childFn + '\'' +
                 ", childLn='" + childLn + '\'' +
-                ", childAge=" + childAge +
                 ", class_id_fk=" + class_id_fk +
-                ", classroom=" + classroom +
+                ", childDob='" + childDob + '\'' +
+                ", classroom=" + classroom + '\'' +
+                ", childAge=" + String.format("%.2f", getChildAge().toTotalMonths() / 12.0f) +
                 '}';
     }
 }

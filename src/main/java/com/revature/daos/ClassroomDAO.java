@@ -91,9 +91,10 @@ public class ClassroomDAO implements ClassroomDAOInterface {
     @Override
     public int insertClassroom(Classroom c) {
         try (Connection conn = ConnectionUtil.getConnection()) {
-            String sql = "INSERT INTO classrooms (class_name, description) VALUES(?)";
+            String sql = "INSERT INTO classrooms (class_name, description) VALUES(?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, c.getClassName());
+            ps.setString(2, c.getDescription());
             return ps.executeUpdate();
 
 

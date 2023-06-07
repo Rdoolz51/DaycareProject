@@ -52,6 +52,6 @@ public class Classroom {
                 "classId=" + classId +
                 ", className='" + className + '\'' +
                 ", description='" + description + '\'' +
-                '}';
+                '}' + "\n";
     }
 }

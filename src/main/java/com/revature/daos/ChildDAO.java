@@ -3,10 +3,7 @@ package com.revature.daos;
 import com.revature.models.Child;
 import com.revature.utils.ConnectionUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class ChildDAO implements ChildDAOInterface {
@@ -25,7 +22,7 @@ public class ChildDAO implements ChildDAOInterface {
                         rs.getInt("child_id"),
                         rs.getString("child_fn"),
                         rs.getString("child_ln"),
-                        rs.getInt("child_age"),
+                        rs.getDate("child_dob"),
                         cDao.getClassroomById(rs.getInt("class_id")));
 
                 children.add(child);
@@ -53,7 +50,7 @@ public class ChildDAO implements ChildDAOInterface {
                         rs.getInt("child_id"),
                         rs.getString("child_fn"),
                         rs.getString("child_ln"),
-                        rs.getInt("child_age"),
+                        rs.getDate("child_dob"),
                         cDao.getClassroomById(rs.getInt("class_id")));
             }
 
@@ -67,11 +64,11 @@ public class ChildDAO implements ChildDAOInterface {
     @Override
     public int insertChild(Child c) {
         try (Connection conn = ConnectionUtil.getConnection()) {
-            String sql = "INSERT INTO children (child_fn, child_ln, child_age, class_id) VALUES(?,?,?,?)";
+            String sql = "INSERT INTO children (child_fn, child_ln, child_dob, class_id) VALUES(?,?,?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, c.getChildFn());
             ps.setString(2, c.getChildLn());
-            ps.setInt(3, c.getChildAge());
+            ps.setDate(3, c.getChildDob());
             ps.setInt(4, c.getClass_id_fk());
             return ps.executeUpdate();
 
@@ -98,13 +95,13 @@ public class ChildDAO implements ChildDAOInterface {
     }
 
     @Override
-    public boolean updateChild(String firstName, String lastName, int age, int class_id_fk, int id) {
+    public boolean updateChild(String firstName, String lastName, Date childDob, int class_id_fk, int id) {
         try (Connection conn = ConnectionUtil.getConnection()) {
-            String sql = "UPDATE children SET child_fn = ?, child_ln = ?, child_age = ?, class_id = ? WHERE child_id = ?";
+            String sql = "UPDATE children SET child_fn = ?, child_ln = ?, child_dob = ?, class_id = ? WHERE child_id = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, firstName);
             ps.setString(2, lastName);
-            ps.setInt(3, age);
+            ps.setDate(3, childDob);
             ps.setInt(4, class_id_fk);
             ps.setInt(5, id);
             ps.executeUpdate();

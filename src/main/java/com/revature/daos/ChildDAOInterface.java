@@ -2,6 +2,7 @@ package com.revature.daos;
 
 import com.revature.models.Child;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 public interface ChildDAOInterface {
@@ -19,5 +20,5 @@ public interface ChildDAOInterface {
     int deleteChild(int id);
 
     //Update Child
-    boolean updateChild(String firstName, String lastName, int age, int class_id_fk, int id);
+    boolean updateChild(String firstName, String lastName, Date childDob, int class_id_fk, int id);
 }

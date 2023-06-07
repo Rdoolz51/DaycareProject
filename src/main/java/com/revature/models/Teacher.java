@@ -70,7 +70,7 @@ public class Teacher {
 
     @Override
     public String toString() {
-        return "Teacher{" +
+        return "\nTeacher{" +
                 "teacherId=" + teacherId +
                 ", teacherFn='" + teacherFn + '\'' +
                 ", teacherLn='" + teacherLn + '\'' +
