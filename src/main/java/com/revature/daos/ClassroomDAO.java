@@ -80,7 +80,7 @@ public class ClassroomDAO implements ClassroomDAOInterface {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             return ps.executeUpdate();
-
+ 
         } catch (SQLException e) {
             System.out.println("Failed to delete from Classrooms");
             e.printStackTrace();

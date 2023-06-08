@@ -19,10 +19,9 @@ public class ConnectionUtil {
             System.out.println("problem occurred locating driver");
         }
 
-        String url = "jdbc:postgresql://localhost:5432/postgres?currentSchema=project0";
-        String username = "postgres";
-        String password = "password"; //This is the password made when installing postgresSQL
-
+        String url = System.getenv("URL");
+        String username = System.getenv("USERNAME");
+        String password = System.getenv("PASSWORD");
         return DriverManager.getConnection(url, username, password);
 
     }
