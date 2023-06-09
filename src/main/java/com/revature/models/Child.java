@@ -3,7 +3,6 @@ package com.revature.models;
 import com.revature.utils.AgeFinderUtil;
 
 import java.sql.Date;
-import java.time.LocalDate;
 import java.time.Period;
 
 public class Child {
@@ -12,8 +11,10 @@ public class Child {
     private String childFn;
     private String childLn;
     private int class_id_fk;
-    private Date childDob; // YYYY-MM-DD Format very important
+    private Date childDob;
     private Classroom classroom;
+    private int parent_id_fk;
+    private Parent parent;
 
     public Child(int childId, String childFn, String childLn, Date childDob) {
         this.childId = childId;
@@ -29,6 +30,15 @@ public class Child {
         this.childLn = childLn;
         this.childDob = childDob;
         this.classroom = classroom;
+    }
+
+    public Child(int childId, String childFn, String childLn, Date childDob, Classroom classroom, Parent parent) {
+        this.childId = childId;
+        this.childFn = childFn;
+        this.childLn = childLn;
+        this.childDob = childDob;
+        this.classroom = classroom;
+        this.parent = parent;
     }
 
     public Child(String childFn, String childLn, Date childDob, int class_id_fk) { //for inserting into DB

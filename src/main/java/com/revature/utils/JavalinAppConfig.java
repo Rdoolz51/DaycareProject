@@ -15,7 +15,6 @@ import static io.javalin.apibuilder.ApiBuilder.*;
 
 public class JavalinAppConfig {
     //This is the class for all Javalin configurations
-    //Before config, I need to create a GSON Object Mapper
 
     Gson gson = new GsonBuilder().create();
 

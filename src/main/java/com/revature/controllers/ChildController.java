@@ -40,9 +40,8 @@ public class ChildController {
 
     public static void handleUpdate(Context ctx) {
         Child child = ctx.bodyAsClass(Child.class);
-        //TODO: maybe clean it up by passing child obj
-        boolean updateSuccessful = cService.updateChild(child.getChildFn(), child.getChildLn(), child.getChildDob(), child.getClass_id_fk(), child.getChildId());
-
+        int id = Integer.parseInt(ctx.pathParam("id"));
+        boolean updateSuccessful = cService.updateChild(child.getChildFn(), child.getChildLn(), child.getChildDob(), child.getClass_id_fk(), id);
         if (updateSuccessful) {
             ctx.status(200).result("Update Successful!");
         } else {

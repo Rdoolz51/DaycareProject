@@ -1,6 +1,5 @@
 package com.revature.controllers;
 
-import com.revature.models.Child;
 import com.revature.models.Classroom;
 import com.revature.services.ClassroomService;
 import io.javalin.http.Context;
@@ -41,9 +40,8 @@ public class ClassroomController {
 
     public static void handleUpdate(Context ctx) {
         Classroom classroom = ctx.bodyAsClass(Classroom.class);
-
-        boolean updateSuccessful = crService.updateClassName(classroom.getClassName(), classroom.getClassId());
-
+        int id = Integer.parseInt(ctx.pathParam("id"));
+        boolean updateSuccessful = crService.updateClassName(classroom.getClassName(), id);
         if (updateSuccessful) {
             ctx.status(200).result("Update Successful!");
         } else {
