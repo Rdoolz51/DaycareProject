@@ -16,9 +16,9 @@ public class ClassroomController {
         int rowsUpdated = crService.insertClassroom(classroom);
 
         if (rowsUpdated == 1) {
-            ctx.status(HttpStatus.CREATED).result("Classroom Created!");
+            ctx.status(HttpStatus.CREATED).result(classroom.getClassName() + " Classroom created for " + classroom.getDescription());
         } else {
-            ctx.status(HttpStatus.BAD_REQUEST).result("Failed to create");
+            ctx.status(HttpStatus.BAD_REQUEST).result("Failed to create Classroom");
         }
     }
 
@@ -32,7 +32,7 @@ public class ClassroomController {
         int id = Integer.parseInt(ctx.pathParam("id"));
         Classroom classroom = crService.getClassroomById(id);
         if (crService.getClassroomById(id) == null) {
-            ctx.status(HttpStatus.BAD_REQUEST);
+            ctx.status(HttpStatus.BAD_REQUEST).result("Classroom with that ID does not exist.");
         } else {
             ctx.json(classroom);
         }
@@ -51,10 +51,11 @@ public class ClassroomController {
 
     public static void handleDelete(Context ctx) {
         int id = Integer.parseInt(ctx.pathParam("id"));
-        if (crService.deleteClassroom(id) == 0) {
-            ctx.status(HttpStatus.BAD_REQUEST);
+        Classroom deletedClass = crService.getClassroomById(id);
+        if (crService.deleteClassroom(id) == 0 || deletedClass == null) {
+            ctx.status(HttpStatus.BAD_REQUEST).result("Failed to delete. ID did not match a Classroom.");
         } else {
-            ctx.result("Successfully deleted classroom");
+            ctx.result("Successfully deleted the " + deletedClass.getClassName() + " classroom");
         }
     }
 }

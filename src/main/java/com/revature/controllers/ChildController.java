@@ -17,9 +17,9 @@ public class ChildController {
         int rowsUpdated = cService.insertChild(child);
 
         if (rowsUpdated == 1) {
-            ctx.status(HttpStatus.CREATED).result("Child Created!");
+            ctx.status(HttpStatus.CREATED).result(child.getChildFn() + " " + child.getChildLn() + " Added to the Database!");
         } else {
-            ctx.status(HttpStatus.BAD_REQUEST).result("Failed to create");
+            ctx.status(HttpStatus.BAD_REQUEST).result("Failed to create Child");
         }
     }
 
@@ -32,7 +32,7 @@ public class ChildController {
         int id = Integer.parseInt(ctx.pathParam("id"));
         Child child = cService.getChildById(id);
         if (cService.getChildById(id) == null) {
-            ctx.status(HttpStatus.BAD_REQUEST);
+            ctx.status(HttpStatus.BAD_REQUEST).result("Child with that ID does not exist.");
         } else {
             ctx.json(child);
         }
@@ -51,10 +51,11 @@ public class ChildController {
 
     public static void handleDelete(Context ctx) {
         int id = Integer.parseInt(ctx.pathParam("id"));
-        if (cService.deleteChild(id) == 0) {
-            ctx.status(HttpStatus.BAD_REQUEST);
+        Child deletedChild = cService.getChildById(id);
+        if (deletedChild == null || cService.deleteChild(id) == 0) {
+            ctx.status(HttpStatus.BAD_REQUEST).result("Failed to delete. ID did not match a Child.");
         } else {
-            ctx.result("Successfully deleted child");
+            ctx.result("Successfully deleted " + deletedChild.getChildFn() + " " + deletedChild.getChildLn());
         }
     }
 }
