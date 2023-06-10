@@ -8,6 +8,9 @@ import com.revature.controllers.ClassroomController;
 import io.javalin.Javalin;
 import io.javalin.json.JsonMapper;
 import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.event.Level;
 
 import java.lang.reflect.Type;
 
@@ -30,7 +33,13 @@ public class JavalinAppConfig {
         }
     };
 
+    private static final Logger logger = LoggerFactory.getLogger(JavalinAppConfig.class);
     private Javalin app = Javalin.create(config -> config.jsonMapper(gsonMapper))
+            //log for debugging later - Create a log for every request I send to the server
+            .before(ctx -> {
+                logger.info(ctx.method() + " request was sent to path:  " + ctx.fullUrl());
+            })
+
             //routes will declare all our possible paths
             .routes(() -> {
                 //each path will allow to group like methods

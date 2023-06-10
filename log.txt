@@ -1,0 +1,26 @@
+18:19:31.222 [main] INFO  io.javalin.Javalin -- Starting Javalin ...
+18:19:31.345 [main] INFO  org.eclipse.jetty.server.Server -- jetty-11.0.15; built: 2023-04-11T18:37:53.775Z; git: 5bc5e562c8d05c5862505aebe5cf83a61bdbcb96; jvm 11.0.18+9-LTS-195
+18:19:31.429 [main] INFO  o.e.j.s.s.DefaultSessionIdManager -- Session workerName=node0
+18:19:31.441 [main] INFO  o.e.j.server.handler.ContextHandler -- Started i.j.j.@395b56bb{/,null,AVAILABLE}
+18:19:31.638 [main] INFO  o.e.jetty.server.AbstractConnector -- Started ServerConnector@7582ff54{HTTP/1.1, (http/1.1)}{0.0.0.0:7070}
+18:19:31.652 [main] INFO  org.eclipse.jetty.server.Server -- Started Server@76f4b65{STARTING}[11.0.15,sto=0] @1070ms
+18:19:31.653 [main] INFO  io.javalin.Javalin -- 
+       __                  ___          ______
+      / /___ __   ______ _/ (_)___     / ____/
+ __  / / __ `/ | / / __ `/ / / __ \   /___ \
+/ /_/ / /_/ /| |/ / /_/ / / / / / /  ____/ /
+\____/\__,_/ |___/\__,_/_/_/_/ /_/  /_____/
+
+       https://javalin.io/documentation
+
+18:19:31.661 [main] INFO  io.javalin.Javalin -- Listening on http://localhost:7070/
+18:19:31.673 [main] INFO  io.javalin.Javalin -- You are running Javalin 5.5.0 (released May 1, 2023).
+18:19:31.675 [main] INFO  io.javalin.Javalin -- Javalin started in 455ms \o/
+18:19:56.880 [JettyServerThreadPool-15] INFO  com.revature.utils.JavalinAppConfig -- PUT request was sent to path:  http://localhost:7070/children/2
+18:19:57.102 [JettyServerThreadPool-15] INFO  c.r.controllers.ChildController -- Updated Child with ID 2 successfully!
+18:20:03.628 [JettyServerThreadPool-18] INFO  com.revature.utils.JavalinAppConfig -- PUT request was sent to path:  http://localhost:7070/children/2
+18:20:03.690 [JettyServerThreadPool-18] INFO  c.r.controllers.ChildController -- Updated Child with ID 2 successfully!
+18:20:18.600 [JettyServerThreadPool-21] INFO  com.revature.utils.JavalinAppConfig -- DELETE request was sent to path:  http://localhost:7070/children/10
+18:20:21.109 [JettyServerThreadPool-20] INFO  com.revature.utils.JavalinAppConfig -- DELETE request was sent to path:  http://localhost:7070/teachers/62
+18:20:21.195 [JettyServerThreadPool-20] WARN  c.r.controllers.TeacherController -- Failed to delete Teacher. The ID 62 did not match any teachers in the database!
+18:20:25.800 [JettyServerThreadPool-21] INFO  com.revature.utils.JavalinAppConfig -- PUT request was sent to path:  http://localhost:7070/classrooms/99

@@ -4,11 +4,14 @@ import com.revature.models.Classroom;
 import com.revature.services.ClassroomService;
 import io.javalin.http.Context;
 import io.javalin.http.HttpStatus;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
 public class ClassroomController {
     private static final ClassroomService crService = new ClassroomService();
+    private static final Logger logger = LoggerFactory.getLogger(ClassroomController.class);
 
     public static void handleInsert(Context ctx) {
         Classroom classroom = ctx.bodyAsClass(Classroom.class);
@@ -44,6 +47,7 @@ public class ClassroomController {
         int rowsUpdated = crService.updateClassName(classroom.getClassName(), id);
         if (rowsUpdated > 0) {
             ctx.status(200).result("Update Successful!");
+            logger.info("Successfully Updated classroom " + id + "'s name to: " + classroom.getClassName());
         } else {
             ctx.status(HttpStatus.BAD_REQUEST).result("Failed to Update Classroom");
         }
