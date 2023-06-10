@@ -95,7 +95,7 @@ public class ChildDAO implements ChildDAOInterface {
     }
 
     @Override
-    public boolean updateChild(String firstName, String lastName, Date childDob, int class_id_fk, int id) {
+    public int updateChild(String firstName, String lastName, Date childDob, int class_id_fk, int id) {
         try (Connection conn = ConnectionUtil.getConnection()) {
             String sql = "UPDATE children SET child_fn = ?, child_ln = ?, child_dob = ?, class_id = ? WHERE child_id = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -104,12 +104,11 @@ public class ChildDAO implements ChildDAOInterface {
             ps.setDate(3, childDob);
             ps.setInt(4, class_id_fk);
             ps.setInt(5, id);
-            ps.executeUpdate();
-            return true;
+            return ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Failed to update Child");
             e.printStackTrace();
         }
-        return false;
+        return 0;
     }
 }

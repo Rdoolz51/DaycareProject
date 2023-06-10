@@ -21,7 +21,7 @@ public class TeacherService {
         return tDao.getTeacherById(id);
     }
 
-    public boolean updateTeacher(String firstName, String lastName, int class_id_fk, int id) {
+    public int updateTeacher(String firstName, String lastName, int class_id_fk, int id) {
         return tDao.updateTeacher(firstName, lastName, class_id_fk, id);
     }
 

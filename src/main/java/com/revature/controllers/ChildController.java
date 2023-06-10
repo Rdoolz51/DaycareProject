@@ -41,8 +41,8 @@ public class ChildController {
     public static void handleUpdate(Context ctx) {
         Child child = ctx.bodyAsClass(Child.class);
         int id = Integer.parseInt(ctx.pathParam("id"));
-        boolean updateSuccessful = cService.updateChild(child.getChildFn(), child.getChildLn(), child.getChildDob(), child.getClass_id_fk(), id);
-        if (updateSuccessful) {
+        int rowsUpdated = cService.updateChild(child.getChildFn(), child.getChildLn(), child.getChildDob(), child.getClass_id_fk(), id);
+        if (rowsUpdated > 0) {
             ctx.status(200).result("Update Successful!");
         } else {
             ctx.status(HttpStatus.BAD_REQUEST).result("Failed to update Child");

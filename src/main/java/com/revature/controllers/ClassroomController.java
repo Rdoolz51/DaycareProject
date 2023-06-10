@@ -41,8 +41,8 @@ public class ClassroomController {
     public static void handleUpdate(Context ctx) {
         Classroom classroom = ctx.bodyAsClass(Classroom.class);
         int id = Integer.parseInt(ctx.pathParam("id"));
-        boolean updateSuccessful = crService.updateClassName(classroom.getClassName(), id);
-        if (updateSuccessful) {
+        int rowsUpdated = crService.updateClassName(classroom.getClassName(), id);
+        if (rowsUpdated > 0) {
             ctx.status(200).result("Update Successful!");
         } else {
             ctx.status(HttpStatus.BAD_REQUEST).result("Failed to Update Classroom");

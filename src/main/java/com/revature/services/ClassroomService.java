@@ -22,7 +22,7 @@ public class ClassroomService {
         return cDao.getClassroomById(id);
     }
 
-    public boolean updateClassName(String name, int id) {
+    public int updateClassName(String name, int id) {
         return cDao.updateClassName(name, id);
     }
 

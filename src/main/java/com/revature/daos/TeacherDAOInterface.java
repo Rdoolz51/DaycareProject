@@ -18,5 +18,5 @@ public interface TeacherDAOInterface {
     int deleteTeacher(int id);
 
     //Update Teacher
-    boolean updateTeacher(String firstName, String lastName, int class_id_fk, int id);
+    int updateTeacher(String firstName, String lastName, int class_id_fk, int id);
 }

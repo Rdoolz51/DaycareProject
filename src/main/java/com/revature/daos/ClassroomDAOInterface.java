@@ -13,7 +13,7 @@ public interface ClassroomDAOInterface {
     Classroom getClassroomById(int id);
 
     //update classroom name
-    boolean updateClassName(String name, int id);
+    int updateClassName(String name, int id);
 
     //delete classroom
     int deleteClassroom(int id);

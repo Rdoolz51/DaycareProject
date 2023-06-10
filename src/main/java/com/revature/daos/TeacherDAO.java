@@ -93,7 +93,7 @@ public class TeacherDAO implements TeacherDAOInterface {
     }
 
     @Override
-    public boolean updateTeacher(String firstName, String lastName, int class_id_fk, int id) {
+    public int updateTeacher(String firstName, String lastName, int class_id_fk, int id) {
         try (Connection conn = ConnectionUtil.getConnection()) {
             String sql = "UPDATE teachers SET teacher_fn = ?, teacher_ln = ?, class_id = ? WHERE teacher_id = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -101,12 +101,11 @@ public class TeacherDAO implements TeacherDAOInterface {
             ps.setString(2, lastName);
             ps.setInt(3, class_id_fk);
             ps.setInt(4, id);
-            ps.executeUpdate();
-            return true;
+            return ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Failed to retrieve Teachers");
             e.printStackTrace();
         }
-        return false;
+        return 0;
     }
 }

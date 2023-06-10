@@ -23,7 +23,7 @@ public class ChildService {
         return chDAO.getChildById(id);
     }
 
-    public boolean updateChild(String firstName, String lastName, Date childDob, int class_id_fk, int id) {
+    public int updateChild(String firstName, String lastName, Date childDob, int class_id_fk, int id) {
         return chDAO.updateChild(firstName, lastName, childDob, class_id_fk, id);
     }
 

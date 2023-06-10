@@ -20,5 +20,5 @@ public interface ChildDAOInterface {
     int deleteChild(int id);
 
     //Update Child
-    boolean updateChild(String firstName, String lastName, Date childDob, int class_id_fk, int id);
+    int updateChild(String firstName, String lastName, Date childDob, int class_id_fk, int id);
 }

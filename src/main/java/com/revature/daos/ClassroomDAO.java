@@ -58,19 +58,19 @@ public class ClassroomDAO implements ClassroomDAOInterface {
     }
 
     @Override
-    public boolean updateClassName(String name, int id) {
+    public int updateClassName(String name, int id) {
         try (Connection conn = ConnectionUtil.getConnection()) {
             String sql = "UPDATE classrooms SET class_name = ? WHERE class_id = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, name);
             ps.setInt(2, id);
-            ps.executeUpdate();
-            return true;
+            return ps.executeUpdate();
+
         } catch (SQLException e) {
             System.out.println("Failed to update Classrooms");
             e.printStackTrace();
         }
-        return false;
+        return 0;
     }
 
     @Override
@@ -80,7 +80,7 @@ public class ClassroomDAO implements ClassroomDAOInterface {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             return ps.executeUpdate();
- 
+
         } catch (SQLException e) {
             System.out.println("Failed to delete from Classrooms");
             e.printStackTrace();

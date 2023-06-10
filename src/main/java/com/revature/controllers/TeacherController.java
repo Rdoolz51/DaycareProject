@@ -40,9 +40,9 @@ public class TeacherController {
     public static void handleUpdate(Context ctx) {
         Teacher teacher = ctx.bodyAsClass(Teacher.class);
         int id = Integer.parseInt(ctx.pathParam("id"));
-        boolean updateSuccessful = tService.updateTeacher(teacher.getTeacherFn(), teacher.getTeacherLn(), teacher.getClass_id_fk(), id);
+        int rowsUpdated = tService.updateTeacher(teacher.getTeacherFn(), teacher.getTeacherLn(), teacher.getClass_id_fk(), id);
 
-        if (updateSuccessful) {
+        if (rowsUpdated > 0) {
             ctx.status(200).result("Update Successful!");
         } else {
             ctx.status(HttpStatus.BAD_REQUEST).result("Failed to Update Teacher");
