@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+import com.revature.daos.ChildDAO;
 import com.revature.models.Child;
 import com.revature.services.ChildService;
 import io.javalin.http.Context;
@@ -10,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 
 public class ChildController {
-    private static final ChildService cService = new ChildService();
+    private static final ChildService cService = new ChildService(new ChildDAO());
 
     private static final Logger logger = LoggerFactory.getLogger(ChildController.class);
 

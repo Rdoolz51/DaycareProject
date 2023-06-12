@@ -24,3 +24,51 @@
 18:20:21.109 [JettyServerThreadPool-20] INFO  com.revature.utils.JavalinAppConfig -- DELETE request was sent to path:  http://localhost:7070/teachers/62
 18:20:21.195 [JettyServerThreadPool-20] WARN  c.r.controllers.TeacherController -- Failed to delete Teacher. The ID 62 did not match any teachers in the database!
 18:20:25.800 [JettyServerThreadPool-21] INFO  com.revature.utils.JavalinAppConfig -- PUT request was sent to path:  http://localhost:7070/classrooms/99
+09:38:09.995 [main] INFO  io.javalin.Javalin -- Starting Javalin ...
+09:38:10.133 [main] INFO  org.eclipse.jetty.server.Server -- jetty-11.0.15; built: 2023-04-11T18:37:53.775Z; git: 5bc5e562c8d05c5862505aebe5cf83a61bdbcb96; jvm 11.0.18+9-LTS-195
+09:38:10.240 [main] INFO  o.e.j.s.s.DefaultSessionIdManager -- Session workerName=node0
+09:38:10.253 [main] INFO  o.e.j.server.handler.ContextHandler -- Started i.j.j.@5f7b97da{/,null,AVAILABLE}
+09:38:10.454 [main] INFO  o.e.jetty.server.AbstractConnector -- Started ServerConnector@492691d7{HTTP/1.1, (http/1.1)}{0.0.0.0:7070}
+09:38:10.468 [main] INFO  org.eclipse.jetty.server.Server -- Started Server@e57b96d{STARTING}[11.0.15,sto=0] @1133ms
+09:38:10.468 [main] INFO  io.javalin.Javalin -- 
+       __                  ___          ______
+      / /___ __   ______ _/ (_)___     / ____/
+ __  / / __ `/ | / / __ `/ / / __ \   /___ \
+/ /_/ / /_/ /| |/ / /_/ / / / / / /  ____/ /
+\____/\__,_/ |___/\__,_/_/_/_/ /_/  /_____/
+
+       https://javalin.io/documentation
+
+09:38:10.477 [main] INFO  io.javalin.Javalin -- Listening on http://localhost:7070/
+09:38:10.492 [main] INFO  io.javalin.Javalin -- You are running Javalin 5.5.0 (released May 1, 2023).
+09:38:10.494 [main] INFO  io.javalin.Javalin -- Javalin started in 500ms \o/
+09:38:36.039 [JettyServerThreadPool-20] INFO  com.revature.utils.JavalinAppConfig -- GET request was sent to path:  http://localhost:7070/children
+09:38:41.748 [JettyServerThreadPool-18] INFO  com.revature.utils.JavalinAppConfig -- GET request was sent to path:  http://localhost:7070/children/1
+09:38:48.534 [JettyServerThreadPool-15] INFO  com.revature.utils.JavalinAppConfig -- PUT request was sent to path:  http://localhost:7070/children/2
+09:38:48.593 [JettyServerThreadPool-15] INFO  c.r.controllers.ChildController -- Updated Child with ID 2 successfully!
+09:38:50.894 [JettyServerThreadPool-21] INFO  com.revature.utils.JavalinAppConfig -- GET request was sent to path:  http://localhost:7070/children
+09:38:56.436 [JettyServerThreadPool-15] INFO  com.revature.utils.JavalinAppConfig -- PUT request was sent to path:  http://localhost:7070/children/2
+09:38:56.483 [JettyServerThreadPool-15] INFO  c.r.controllers.ChildController -- Updated Child with ID 2 successfully!
+10:01:38.285 [main] INFO  io.javalin.Javalin -- Starting Javalin ...
+10:01:38.406 [main] INFO  org.eclipse.jetty.server.Server -- jetty-11.0.15; built: 2023-04-11T18:37:53.775Z; git: 5bc5e562c8d05c5862505aebe5cf83a61bdbcb96; jvm 11.0.18+9-LTS-195
+10:01:38.494 [main] INFO  o.e.j.s.s.DefaultSessionIdManager -- Session workerName=node0
+10:01:38.507 [main] INFO  o.e.j.server.handler.ContextHandler -- Started i.j.j.@5f7b97da{/,null,AVAILABLE}
+10:01:38.705 [main] INFO  o.e.jetty.server.AbstractConnector -- Started ServerConnector@492691d7{HTTP/1.1, (http/1.1)}{0.0.0.0:7070}
+10:01:38.725 [main] INFO  org.eclipse.jetty.server.Server -- Started Server@e57b96d{STARTING}[11.0.15,sto=0] @1054ms
+10:01:38.726 [main] INFO  io.javalin.Javalin -- 
+       __                  ___          ______
+      / /___ __   ______ _/ (_)___     / ____/
+ __  / / __ `/ | / / __ `/ / / __ \   /___ \
+/ /_/ / /_/ /| |/ / /_/ / / / / / /  ____/ /
+\____/\__,_/ |___/\__,_/_/_/_/ /_/  /_____/
+
+       https://javalin.io/documentation
+
+10:01:38.733 [main] INFO  io.javalin.Javalin -- Listening on http://localhost:7070/
+10:01:38.748 [main] INFO  io.javalin.Javalin -- You are running Javalin 5.5.0 (released May 1, 2023).
+10:01:38.751 [main] INFO  io.javalin.Javalin -- Javalin started in 467ms \o/
+10:01:44.978 [JettyServerThreadPool-20] INFO  com.revature.utils.JavalinAppConfig -- GET request was sent to path:  http://localhost:7070/children
+10:01:52.158 [JettyServerThreadPool-21] INFO  com.revature.utils.JavalinAppConfig -- GET request was sent to path:  http://localhost:7070/children/1
+10:01:57.688 [JettyServerThreadPool-18] INFO  com.revature.utils.JavalinAppConfig -- GET request was sent to path:  http://localhost:7070/teachers
+10:02:00.778 [JettyServerThreadPool-19] INFO  com.revature.utils.JavalinAppConfig -- GET request was sent to path:  http://localhost:7070/classrooms
+10:02:19.601 [JettyServerThreadPool-18] INFO  com.revature.utils.JavalinAppConfig -- GET request was sent to path:  http://localhost:7070/children
